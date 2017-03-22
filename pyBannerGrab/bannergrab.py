@@ -143,7 +143,7 @@ class BannerGrabber:
         # Banner Grabbing Functions
     def banner_ip(self,address, port):
         s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-        s.settimeout(10)
+        #s.settimeout(10)
         try:
             s.connect((address, port))
             if port==80:
@@ -275,7 +275,7 @@ def main():
     timeout=options.timeout
 
     for h,p in host.iteritems():
-        print "[*] IP Address Detected : {} | Port Detected : {}".format(h,p)
+        print "[*] IP Address Detected : {} | Num. Of Port Detected : {}".format(h,len(p))
 
 
     if not options.check:
