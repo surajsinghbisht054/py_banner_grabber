@@ -145,7 +145,7 @@ class BannerGrabber:
         s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
         #s.settimeout(10)
         try:
-            s.connect((address, port))
+            s.connect((address, int(port)))
             if port==80:
                 print "\n[+] HTTP PROTOCOL Founded. IP : {}| PORT : {}".format(address, port)
                 #Send some data to remote server
