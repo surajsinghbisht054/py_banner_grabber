@@ -1,9 +1,5 @@
 #!/usr/bin/python
-# ---------------- READ ME ---------------------------------------------
-# This Script is Created Only For Practise And Educational Purpose Only
-# This Script Is Created For http://bitforestinfo.blogspot.com
-# This Script is Written By
-#
+
 #
 ##################################################
 ######## Please Don't Remove Author Name #########
@@ -12,19 +8,9 @@
 #
 #
 __author__='''
-
-######################################################
-                By S.S.B Group                          
-######################################################
-
     Suraj Singh
-    Admin
-    S.S.B Group
     surajsinghbisht054@gmail.com
     http://bitforestinfo.blogspot.com/
-
-    Note: We Feel Proud To Be Indian
-######################################################
 '''
 
 # =================Other Configuration================ 
@@ -102,23 +88,23 @@ class BannerGrabber:
     def iter_address(self):
         starttime = time.time()
         # iter Host Iterms
-        for address, port in self.host.iteritems():
+        for address, port in self.host.items():
             self.start_threading(address, port)
         closetime = time.time()
-        print "\n\n",'*'*50,'\n'
+        print("\n\n",'*'*50,'\n')
         for i in self.banners:
-            print "[+] IP : {} | Port : {} | Banner : {}".format(i[0][0],i[0][1],i[1])
-        print "\n",'*'*50,'\n'
-        print "[+] Scan Started On ", time.ctime(starttime)
-        print "[+] Scan Finished On", time.ctime(closetime)            
-        print '[+] Total Time Taken ',
-        print closetime-starttime, ' Seconds '
-        print "\n",'*'*50,'\n'
-        print "\n\n Thanks For Using My Program by SSB"
+            print("[+] IP : {} | Port : {} | Banner : {}".format(i[0][0],i[0][1],i[1]))
+        print("\n",'*'*50,'\n')
+        print("[+] Scan Started On ", time.ctime(starttime))
+        print("[+] Scan Finished On", time.ctime(closetime))            
+        print('[+] Total Time Taken ', end=' ')
+        print(closetime-starttime, ' Seconds ')
+        print("\n",'*'*50,'\n')
+        print("\n\n Thanks For Using My Program by SSB")
         # if Output File Name Is Provided
         if self.output:
             f = open(self.output, 'a')
-            for address, port in self.host.iteritems():
+            for address, port in self.host.items():
                 f.write("{} | {} | {}".format(i[0][0],i[0][1],[i[1]]))
             f.close() 
         return
@@ -147,7 +133,7 @@ class BannerGrabber:
         try:
             s.connect((address, port))
             if port==80:
-                print "\n[+] HTTP PROTOCOL Founded. IP : {}| PORT : {}".format(address, port)
+                print("\n[+] HTTP PROTOCOL Founded. IP : {}| PORT : {}".format(address, port))
                 #Send some data to remote server
                 message = "GET / HTTP/1.1\r\n\r\n"
                 s.sendall(message)
@@ -173,7 +159,7 @@ def port_extraction(port):
         # Verifying Port is in Range
         if "-" in port and "," not in port:
             x1,x2=port.split('-')
-            storeport=range(int(x1),int(x2))
+            storeport=list(range(int(x1),int(x2)))
         # Verifying Port is in Commas
         elif "," in port and "-" not in port:
             storeport=port.split(',')
@@ -182,14 +168,14 @@ def port_extraction(port):
             for i in port.split(','):
                 if '-' in i:
                     y1,y2=i.split('-')
-                    x2=x2+range(int(y1),int(y2))
+                    x2=x2+list(range(int(y1),int(y2)))
                 else:
                     x2.append(i)
             storeport=x2
         else:
             storeport.append(port)
     else:
-        print "[*] Please Provide Ports For Scanning."
+        print("[*] Please Provide Ports For Scanning.")
         sys.exit(0)
     return storeport
 
@@ -203,7 +189,7 @@ def port_extraction(port):
         # Verifying Port is in Range
         if "-" in port and "," not in port:
             x1,x2=port.split('-')
-            storeport=range(int(x1),int(x2))
+            storeport=list(range(int(x1),int(x2)))
         # Verifying Port is in Commas
         elif "," in port and "-" not in port:
             storeport=port.split(',')
@@ -212,14 +198,14 @@ def port_extraction(port):
             for i in port.split(','):
                 if '-' in i:
                     y1,y2=i.split('-')
-                    x2=x2+range(int(y1),int(y2))
+                    x2=x2+list(range(int(y1),int(y2)))
                 else:
                     x2.append(i)
             storeport=x2
         else:
             storeport.append(port)
     else:
-        print "[*] Please Provide Ports For Scanning."
+        print("[*] Please Provide Ports For Scanning.")
         sys.exit(0)
     return storeport
 
@@ -234,7 +220,7 @@ def valid_ip(ip):
 
 # Main Function
 def main():
-    print __author__
+    print(__author__)
     parser=optparse.OptionParser(usage=usage,version=Version)
     parser.add_option('-t','--target',type='string',dest='target',help="Specify Target For Scan", default=None)
     parser.add_option('-i','--input',type='string',dest='input',help="Specify Input Txt File Of Data", default=None)
@@ -249,11 +235,11 @@ def main():
     # Conditions
     if not options.input:
         if (not options.target):
-            print "[*] Please Specify Target. e.g: -t 192.168.10.1 or -t www.site.org \n[*]\t\t or Provide Input File. e.g: -i file.txt"
+            print("[*] Please Specify Target. e.g: -t 192.168.10.1 or -t www.site.org \n[*]\t\t or Provide Input File. e.g: -i file.txt")
             sys.exit(0)
 
         if not options.port and not options.port:
-            print "[*] Please Specify Ports Seperated by commas or Provide Range of Ports. eg. 80-120,121,122,123-1200 \n[*]\t\t or Provide Input File. e.g: -i file.txt"
+            print("[*] Please Specify Ports Seperated by commas or Provide Range of Ports. eg. 80-120,121,122,123-1200 \n[*]\t\t or Provide Input File. e.g: -i file.txt")
             sys.exit(0)
 
         if not options.input:
@@ -274,16 +260,16 @@ def main():
     output=options.output
     timeout=options.timeout
 
-    for h,p in host.iteritems():
-        print "[*] IP Address Detected : {} | Num. Of Port Detected : {}".format(h,len(p))
+    for h,p in host.items():
+        print("[*] IP Address Detected : {} | Num. Of Port Detected : {}".format(h,len(p)))
 
 
     if not options.check:
-        for target, port in host.iteritems():
+        for target, port in host.items():
              s = BannerScanner(target, port, thread, timeout)
              r = s.get_result()
              host[r[0]]=r[1]
-             print "[*] Open Ports Verified.\n[+] IP : {} | Ports : {}".format(r[0], r[1]) 
+             print("[*] Open Ports Verified.\n[+] IP : {} | Ports : {}".format(r[0], r[1])) 
     BannerGrabber(host, thread, output)
    
 
@@ -292,7 +278,7 @@ if __name__ == '__main__':
     try:
         main()
     except KeyboardInterrupt:
-        print "[Exiting Program] \n [+]Thanks For Using! Have a nice day! Bitforestinfo[=]"
+        print("[Exiting Program] \n [+]Thanks For Using! Have a nice day! Bitforestinfo[=]")
         sys.exit(0)
     except Exception as e:
-        print e
+        print(e)

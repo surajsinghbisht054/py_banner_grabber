@@ -40,34 +40,35 @@ Options:
 
 #### Example 1:
 ```
-    python bannergrab.py -t www.site.in -p 0-22,24,80 
+    python3 bannergrab.py -t www.site.in -p 0-22,24,80 
 ```
 
 #### Example 2:
 ```
-    python bannergrab.py -t www.site.in -p 22,80,60,65,453 -o results.txt
+    python3 bannergrab.py -t www.site.in -p 22,80,60,65,453 -o results.txt
 
 ```
 #### Example 3:
 ```
-    python bannergrab.py -t www.site.in -p 0-22000 -o results.txt --thread 800
+    python3 bannergrab.py -t www.site.in -p 0-22000 -o results.txt --thread 800
 ```
 
 
 # Author.
 
-######################################################
-                By S.S.B Group                          
-######################################################
 
-    Suraj Singh
-    Admin
-    S.S.B Group
-    surajsinghbisht054@gmail.com
-    http://bitforestinfo.blogspot.com/
+<div style="box-shadow: 0 5px 18px rgba(0, 0, 0, 0.6);">
 
-    Note: We Feel Proud To Be Indian
-######################################################
+<a href="https://surajsinghbisht054.blogspot.com" target="_blank">
+
+![author_profile](https://1.bp.blogspot.com/-PX4oBdjyb14/XbOCqgWpATI/AAAAAAAAELo/-jSsyNSMHmkXGXtw9qCT68qiUNqDE2NcACNcBGAsYHQ/s400/logo.png)
+
+</a>
+
+<p> author : surajsinghbisht054@gmail.com </p>
+
+</div>
+
 
 
 
