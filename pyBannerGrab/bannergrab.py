@@ -28,7 +28,6 @@ import optparse
 import sys
 import errno
 
-from pdb import set_trace
 
 
 # Port Scanner Engine
@@ -184,34 +183,6 @@ def port_extraction(port):
 
 
 
-# # Port Numbers Extractor
-# def port_extraction(port):
-#     storeport=[]
-#     # Verifiying Port Value
-#     if port:
-#         # Verifying Port is in Range
-#         if "-" in port and "," not in port:
-#             x1,x2=port.split('-')
-#             storeport=list(range(int(x1),int(x2)))
-#         # Verifying Port is in Commas
-#         elif "," in port and "-" not in port:
-#             storeport = [int(i) for i in port.split(',')]
-#         elif "," in port and "-" in port:
-#             x2=[]
-#             for i in port.split(','):
-#                 if '-' in i:
-#                     y1,y2=i.split('-')
-#                     x2=x2+list(range(int(y1),int(y2)))
-#                 else:
-#                     x2.append(i)
-#             storeport=x2
-#         else:
-#             storeport.append(port)
-#     else:
-#         print("[*] Please Provide Ports For Scanning.")
-#         sys.exit(0)
-#     return storeport
-
 # Checking About User Input Data is IP Or Host
 def valid_ip(ip):
     " Verifying IP Address "
@@ -235,7 +206,6 @@ def main():
 
     (options, args)= parser.parse_args()
 
-    # set_trace()
 
     # Conditions
     if not options.input:
